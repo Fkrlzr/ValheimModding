@@ -11,6 +11,7 @@ public sealed class BattleSide
 	public int Id;
 	public PickEntry Pick = null!;
 	public int Stars;
+	public ClllcChoice Clllc = new();
 	public readonly List<ZDOID> Members = new();
 	public readonly Dictionary<string, int> Composition = new();
 	public int Alive;
@@ -76,7 +77,7 @@ public static class BattleManager
 		return side;
 	}
 
-	public static bool Start(PickEntry a, PickEntry b, int countA, int countB, int starsA, int starsB)
+	public static bool Start(PickEntry a, PickEntry b, int countA, int countB, int starsA, int starsB, ClllcChoice? choiceA = null, ClllcChoice? choiceB = null)
 	{
 		Player? player = Player.m_localPlayer;
 		if (player == null || ZNetScene.instance == null || ZoneSystem.instance == null)
@@ -102,8 +103,8 @@ public static class BattleManager
 		Vector3 center = view.position + forward * MobBattle.spawnDistance.Value;
 
 		Battle battle = new() { Id = nextBattleId++, StartTime = Time.time };
-		battle.A = new BattleSide { Id = 1, Pick = a, Stars = starsA };
-		battle.B = new BattleSide { Id = 2, Pick = b, Stars = starsB };
+		battle.A = new BattleSide { Id = 1, Pick = a, Stars = starsA, Clllc = choiceA ?? new ClllcChoice() };
+		battle.B = new BattleSide { Id = 2, Pick = b, Stars = starsB, Clllc = choiceB ?? new ClllcChoice() };
 
 		SpawnSide(battle, battle.A, center - right * half, right, forward, right, countA, columnsA, spacing);
 		SpawnSide(battle, battle.B, center + right * half, -right, forward, right, countB, columnsB, spacing);
@@ -163,7 +164,7 @@ public static class BattleManager
 			character.SetLevel(side.Stars + 1);
 			// Boss kills normally unlock world progress, a staged fight must not.
 			character.m_defeatSetGlobalKey = "";
-			ClllcCompat.Prepare(character);
+			ClllcCompat.Prepare(character, side.Clllc);
 			if (MobBattle.disableDrops.Value)
 			{
 				instance.GetComponent<CharacterDrop>()?.SetDropsEnabled(false);

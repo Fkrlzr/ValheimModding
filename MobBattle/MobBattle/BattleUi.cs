@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -21,6 +22,8 @@ public class BattleUi : MonoBehaviour
 	private int countB;
 	private int starsA;
 	private int starsB;
+	private readonly ClllcChoice choiceA = new();
+	private readonly ClllcChoice choiceB = new();
 	private bool initialized;
 	private Rect window;
 	private string notice = "";
@@ -223,7 +226,7 @@ public class BattleUi : MonoBehaviour
 		GUILayout.EndHorizontal();
 
 		// Pick list.
-		scroll = GUILayout.BeginScrollView(scroll, GUI.skin.box, GUILayout.Height(window.height * 0.34f));
+		scroll = GUILayout.BeginScrollView(scroll, GUI.skin.box, GUILayout.Height(window.height * (ClllcCompat.Present ? 0.27f : 0.34f)));
 		var entries = BattleCatalog.Entries(tab);
 		string needle = (filter ?? "").Trim();
 		int shown = 0;
@@ -291,8 +294,10 @@ public class BattleUi : MonoBehaviour
 		if (ClllcCompat.Present)
 		{
 			GUILayout.Label(MobBattle.keepClllcEffects.Value
-				? "CLLC detected: its health/damage scaling and random effects apply (Splitting and boss affixes are removed)."
-				: "CLLC detected: its health/damage scaling applies, random effects and infusions are removed.");
+				? "CLLC detected: its health/damage scaling applies. Default keeps its random effects (Splitting is always removed). Click a button to change it."
+				: "CLLC detected: its health/damage scaling applies. Default removes random effects, infusions and boss affixes. Click a button to pick one instead.");
+			ClllcRow("Side A  CLLC", choiceA);
+			ClllcRow("Side B  CLLC", choiceB);
 		}
 
 		// Buttons.
@@ -380,9 +385,43 @@ public class BattleUi : MonoBehaviour
 		notice = "";
 	}
 
+	private static string Cycle(string current, List<string> options)
+	{
+		int index = options.IndexOf(current);
+		return options[(index + 1) % options.Count];
+	}
+
+	// One row of buttons for what CLLC gives a side. Each click steps to the next value.
+	private static void ClllcRow(string title, ClllcChoice choice)
+	{
+		GUILayout.BeginHorizontal();
+		GUILayout.Label(title, GUILayout.Width(150f));
+		if (GUILayout.Button("Effect: " + choice.Effect))
+		{
+			choice.Effect = Cycle(choice.Effect, ClllcCompat.EffectOptions());
+		}
+
+		if (GUILayout.Button("Infusion: " + choice.Infusion))
+		{
+			choice.Infusion = Cycle(choice.Infusion, ClllcCompat.InfusionOptions());
+		}
+
+		if (GUILayout.Button("Boss affix: " + choice.Affix))
+		{
+			choice.Affix = Cycle(choice.Affix, ClllcCompat.AffixOptions());
+		}
+
+		GUILayout.EndHorizontal();
+	}
+
+	private static ClllcChoice Copy(ClllcChoice choice)
+	{
+		return new ClllcChoice { Effect = choice.Effect, Infusion = choice.Infusion, Affix = choice.Affix };
+	}
+
 	private void StartBattle(PickEntry a, PickEntry b, int mobCountA, int mobCountB, int mobStarsA, int mobStarsB, bool closeMenu)
 	{
-		if (BattleManager.Start(a, b, mobCountA, mobCountB, mobStarsA, mobStarsB))
+		if (BattleManager.Start(a, b, mobCountA, mobCountB, mobStarsA, mobStarsB, Copy(choiceA), Copy(choiceB)))
 		{
 			lastA = a;
 			lastB = b;
