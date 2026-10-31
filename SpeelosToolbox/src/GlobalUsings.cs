@@ -1,0 +1,13 @@
+global using static Terminal;
+global using static ItemDrop;
+global using static ItemDrop.ItemData;
+global using static Skills;
+global using static MessageHud;
+global using static UnityEngine.GUI;
+global using static HitData;
+global using static Heightmap;
+global using static Player;
+global using static ZNet;
+global using static Minimap;
+global using static Chat;
+global using Object = UnityEngine.Object;

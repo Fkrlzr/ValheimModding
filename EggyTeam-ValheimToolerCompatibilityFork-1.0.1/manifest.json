@@ -1,0 +1,9 @@
+{
+  "name": "ValheimToolerCompatibilityFork",
+  "version_number": "1.0.1",
+  "website_url": "https://thunderstore.io/c/valheim/p/EggyTeam/ValheimToolerCompatibilityFork/",
+  "description": "Unofficial ValheimTooler compatibility fork targeting Valheim 1.0.12. Includes item and terrain fixes; see README for known limitations.",
+  "dependencies": [
+    "denikson-BepInExPack_Valheim-5.4.2350"
+  ]
+}

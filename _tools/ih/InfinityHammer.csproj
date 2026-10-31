@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>InfinityHammer</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>net48</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>11.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="BepInEx" />
+    <Reference Include="assembly_valheim" />
+    <Reference Include="System.Core" />
+    <Reference Include="UnityEngine.CoreModule" />
+    <Reference Include="ServerDevcommands" />
+    <Reference Include="0Harmony" />
+    <Reference Include="UnityEngine.PhysicsModule" />
+    <Reference Include="WorldEditCommands" />
+    <Reference Include="Unity.InputSystem" />
+    <Reference Include="assembly_utils" />
+    <Reference Include="Unity.TextMeshPro" />
+    <Reference Include="Splatform" />
+    <Reference Include="assembly_guiutils" />
+    <Reference Include="UnityEngine.AnimationModule" />
+    <Reference Include="UnityEngine.IMGUIModule" />
+    <Reference Include="SoftReferenceableAssets" />
+    <Reference Include="UnityEngine.InputLegacyModule" />
+    <Reference Include="UnityEngine.UI" />
+  </ItemGroup>
+</Project>

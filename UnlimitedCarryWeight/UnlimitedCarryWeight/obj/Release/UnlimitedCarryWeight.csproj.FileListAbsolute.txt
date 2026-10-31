@@ -1,0 +1,16 @@
+E:\Documents\Sekolah\ValheimModding\UnlimitedCarryWeight\UnlimitedCarryWeight\obj\Release\UnlimitedCarryWeight.csproj.AssemblyReference.cache
+E:\Documents\Sekolah\ValheimModding\UnlimitedCarryWeight\UnlimitedCarryWeight\obj\Release\UnlimitedCarryWeight.csproj.CoreCompileInputs.cache
+E:\Documents\Sekolah\ValheimModding\UnlimitedCarryWeight\UnlimitedCarryWeight\bin\Release\UnlimitedCarryWeight.dll
+E:\Documents\Sekolah\ValheimModding\UnlimitedCarryWeight\UnlimitedCarryWeight\bin\Release\UnlimitedCarryWeight.pdb
+E:\Documents\Sekolah\ValheimModding\UnlimitedCarryWeight\UnlimitedCarryWeight\bin\Release\0Harmony.dll
+E:\Documents\Sekolah\ValheimModding\UnlimitedCarryWeight\UnlimitedCarryWeight\bin\Release\BepInEx.dll
+E:\Documents\Sekolah\ValheimModding\UnlimitedCarryWeight\UnlimitedCarryWeight\bin\Release\Mono.Cecil.dll
+E:\Documents\Sekolah\ValheimModding\UnlimitedCarryWeight\UnlimitedCarryWeight\bin\Release\MonoMod.Utils.dll
+E:\Documents\Sekolah\ValheimModding\UnlimitedCarryWeight\UnlimitedCarryWeight\bin\Release\MonoMod.RuntimeDetour.dll
+E:\Documents\Sekolah\ValheimModding\UnlimitedCarryWeight\UnlimitedCarryWeight\bin\Release\0Harmony.xml
+E:\Documents\Sekolah\ValheimModding\UnlimitedCarryWeight\UnlimitedCarryWeight\bin\Release\BepInEx.xml
+E:\Documents\Sekolah\ValheimModding\UnlimitedCarryWeight\UnlimitedCarryWeight\bin\Release\MonoMod.Utils.xml
+E:\Documents\Sekolah\ValheimModding\UnlimitedCarryWeight\UnlimitedCarryWeight\bin\Release\MonoMod.RuntimeDetour.xml
+E:\Documents\Sekolah\ValheimModding\UnlimitedCarryWeight\UnlimitedCarryWeight\obj\Release\Unlimite.A6AAF1BF.Up2Date
+E:\Documents\Sekolah\ValheimModding\UnlimitedCarryWeight\UnlimitedCarryWeight\obj\Release\UnlimitedCarryWeight.dll
+E:\Documents\Sekolah\ValheimModding\UnlimitedCarryWeight\UnlimitedCarryWeight\obj\Release\UnlimitedCarryWeight.pdb

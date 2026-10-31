@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>WorldEditCommands</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>net48</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>11.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="UnityEngine.CoreModule" />
+    <Reference Include="assembly_utils" />
+    <Reference Include="assembly_valheim" />
+    <Reference Include="System.Core" />
+    <Reference Include="BepInEx" />
+    <Reference Include="ServerDevcommands" />
+    <Reference Include="0Harmony" />
+    <Reference Include="UnityEngine.PhysicsModule" />
+    <Reference Include="gui_framework" />
+    <Reference Include="Unity.TextMeshPro" />
+    <Reference Include="UnityEngine.IMGUIModule" />
+    <Reference Include="SoftReferenceableAssets" />
+  </ItemGroup>
+</Project>

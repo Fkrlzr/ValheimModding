@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>ServerDevcommands</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>net48</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>11.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="ILRepack.List" />
+    <EmbeddedResource Include="ILRepack.List" LogicalName="ILRepack.List" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="assembly_valheim" />
+    <Reference Include="0Harmony" />
+    <Reference Include="BepInEx" />
+    <Reference Include="UnityEngine.CoreModule" />
+    <Reference Include="System.Core" />
+    <Reference Include="UnityEngine.PhysicsModule" />
+    <Reference Include="assembly_utils" />
+    <Reference Include="gui_framework" />
+    <Reference Include="UnityEngine.UI" />
+    <Reference Include="UnityEngine.IMGUIModule" />
+    <Reference Include="UnityEngine.UIModule" />
+    <Reference Include="Unity.TextMeshPro" />
+    <Reference Include="Splatform" />
+    <Reference Include="Unity.InputSystem" />
+    <Reference Include="UnityEngine.InputLegacyModule" />
+    <Reference Include="SoftReferenceableAssets" />
+  </ItemGroup>
+</Project>

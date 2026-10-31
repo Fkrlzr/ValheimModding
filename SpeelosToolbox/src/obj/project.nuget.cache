@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "m5vDGZonwyBFMAMRklrApBvz5pz2ejjll8zeYPV39uq8KcoI6jKxtsIlm7dZ3bFxL4YHLPh24udHKb2dE7VZSA==",
+  "success": true,
+  "projectFilePath": "e:\\Documents\\Sekolah\\ValheimModding\\SpeelosToolbox\\src\\SpeelosToolbox.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Asus ROG\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.3\\microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
+    "C:\\Users\\Asus ROG\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net48\\1.0.3\\microsoft.netframework.referenceassemblies.net48.1.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

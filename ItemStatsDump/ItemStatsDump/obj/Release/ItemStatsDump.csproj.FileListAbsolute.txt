@@ -1,0 +1,16 @@
+E:\Documents\Sekolah\ValheimModding\ItemStatsDump\ItemStatsDump\bin\Release\ItemStatsDump.dll
+E:\Documents\Sekolah\ValheimModding\ItemStatsDump\ItemStatsDump\bin\Release\ItemStatsDump.pdb
+E:\Documents\Sekolah\ValheimModding\ItemStatsDump\ItemStatsDump\bin\Release\0Harmony.dll
+E:\Documents\Sekolah\ValheimModding\ItemStatsDump\ItemStatsDump\bin\Release\BepInEx.dll
+E:\Documents\Sekolah\ValheimModding\ItemStatsDump\ItemStatsDump\bin\Release\Mono.Cecil.dll
+E:\Documents\Sekolah\ValheimModding\ItemStatsDump\ItemStatsDump\bin\Release\MonoMod.Utils.dll
+E:\Documents\Sekolah\ValheimModding\ItemStatsDump\ItemStatsDump\bin\Release\MonoMod.RuntimeDetour.dll
+E:\Documents\Sekolah\ValheimModding\ItemStatsDump\ItemStatsDump\bin\Release\0Harmony.xml
+E:\Documents\Sekolah\ValheimModding\ItemStatsDump\ItemStatsDump\bin\Release\BepInEx.xml
+E:\Documents\Sekolah\ValheimModding\ItemStatsDump\ItemStatsDump\bin\Release\MonoMod.Utils.xml
+E:\Documents\Sekolah\ValheimModding\ItemStatsDump\ItemStatsDump\bin\Release\MonoMod.RuntimeDetour.xml
+E:\Documents\Sekolah\ValheimModding\ItemStatsDump\ItemStatsDump\obj\Release\ItemStatsDump.csproj.AssemblyReference.cache
+E:\Documents\Sekolah\ValheimModding\ItemStatsDump\ItemStatsDump\obj\Release\ItemStatsDump.csproj.CoreCompileInputs.cache
+E:\Documents\Sekolah\ValheimModding\ItemStatsDump\ItemStatsDump\obj\Release\ItemStat.42465B26.Up2Date
+E:\Documents\Sekolah\ValheimModding\ItemStatsDump\ItemStatsDump\obj\Release\ItemStatsDump.dll
+E:\Documents\Sekolah\ValheimModding\ItemStatsDump\ItemStatsDump\obj\Release\ItemStatsDump.pdb
