@@ -17,6 +17,12 @@ internal class ModSpawn : SkBaseModule, IModule
 
 	private bool tamed;
 
+	private string cllcEffect = "Random";
+
+	private string cllcInfusion = "Random";
+
+	private string cllcAffix = "Random";
+
 	private List<SkMenuController.SkGridItem> cache;
 
 	private int cachedFor;
@@ -83,7 +89,7 @@ internal class ModSpawn : SkBaseModule, IModule
 			{
 				Label = "Level",
 				Min = 1,
-				Max = 3,
+				Max = LevelLimit(),
 				Get = () => level,
 				Set = delegate(int value)
 				{
@@ -103,7 +109,80 @@ internal class ModSpawn : SkBaseModule, IModule
 				}
 			}
 		};
-		SkMC.RequestGridMenu(cache, sliders, "Spawn", showFilter: true, toggles);
+		List<SkMenuController.SkGridItem> grid = cache;
+		if (SkCllcSpawn.Available)
+		{
+			grid = new List<SkMenuController.SkGridItem>(cache.Count + 1);
+			grid.Add(new SkMenuController.SkGridItem
+			{
+				Name = "CLLC Options",
+				Display = "CLLC Options",
+				Tip = "CLLC Options  -  Creature Level & Loot Control is installed: choose the star effect, elemental infusion and boss affix for what you spawn, instead of leaving them to chance",
+				Icon = SkIcons.First("TrophyEikthyr", "Wishbone"),
+				Scope = SkMenuController.SkScope.Client,
+				OnClick = delegate
+				{
+					ShowCllcForm();
+				}
+			});
+			grid.AddRange(cache);
+		}
+		SkMC.RequestGridMenu(grid, sliders, "Spawn", showFilter: true, toggles);
+	}
+
+	// Vanilla creatures stop at 2 stars (level 3). With CLLC the limit is its own Maximum stars setting.
+	private static int LevelLimit()
+	{
+		return SkCllcSpawn.Available ? SkCllcSpawn.MaxLevel() : 3;
+	}
+
+	private SkMenuController.SkFormField CllcChoice(string id, string label, List<string> options, string current)
+	{
+		SkMenuController.SkFormField skFormField = new SkMenuController.SkFormField
+		{
+			Id = id,
+			Label = label,
+			Kind = SkMenuController.SkFieldKind.Choice,
+			Height = 120
+		};
+		skFormField.Options.AddRange(options);
+		skFormField.Selected = Math.Max(0, options.IndexOf(current));
+		return skFormField;
+	}
+
+	private void ShowCllcForm()
+	{
+		SkMenuController.SkForm skForm = new SkMenuController.SkForm
+		{
+			Title = "CLLC Options",
+			Note = "What Creature Level & Loot Control gives the creatures you spawn. Random leaves CLLC's own roll alone, None removes it. Effects and infusions apply to normal creatures, the affix to bosses. Stars beyond 2 need the Level slider."
+		};
+		skForm.Fields.Add(CllcChoice("effect", "Star effect", SkCllcSpawn.Effects(), cllcEffect));
+		skForm.Fields.Add(CllcChoice("infusion", "Infusion", SkCllcSpawn.Infusions(), cllcInfusion));
+		skForm.Fields.Add(CllcChoice("affix", "Boss affix", SkCllcSpawn.Affixes(), cllcAffix));
+		skForm.Actions.Add(new SkMenuController.SkFormAction
+		{
+			Label = "Save",
+			Run = delegate(SkMenuController.SkForm f)
+			{
+				cllcEffect = f.Field("effect").SelectedOption ?? "Random";
+				cllcInfusion = f.Field("infusion").SelectedOption ?? "Random";
+				cllcAffix = f.Field("affix").SelectedOption ?? "Random";
+				SkCommandProcessor.Notify("CLLC: " + cllcEffect + " / " + cllcInfusion + " / " + cllcAffix);
+			}
+		});
+		skForm.Actions.Add(new SkMenuController.SkFormAction
+		{
+			Label = "Reset to Random",
+			Run = delegate
+			{
+				cllcEffect = "Random";
+				cllcInfusion = "Random";
+				cllcAffix = "Random";
+				SkCommandProcessor.Notify("CLLC choices back to Random.");
+			}
+		});
+		SkMC.ShowForm(skForm);
 	}
 
 	private List<SkMenuController.SkGridItem> BuildCreatures()
@@ -215,7 +294,11 @@ internal class ModSpawn : SkBaseModule, IModule
 				Character component = val4.GetComponent<Character>();
 				if ((Object)(object)component != (Object)null && level > 1)
 				{
-					component.SetLevel(Mathf.Clamp(level, 1, 3));
+					component.SetLevel(Mathf.Clamp(level, 1, LevelLimit()));
+				}
+				if ((Object)(object)component != (Object)null && SkCllcSpawn.Available)
+				{
+					SkCllcSpawn.Apply(component, cllcEffect, cllcInfusion, cllcAffix);
 				}
 				if (tamed)
 				{

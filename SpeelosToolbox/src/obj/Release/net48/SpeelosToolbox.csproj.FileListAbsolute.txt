@@ -9,3 +9,4 @@ e:\Documents\Sekolah\ValheimModding\SpeelosToolbox\_out\SpeelosToolbox.dll
 e:\Documents\Sekolah\ValheimModding\SpeelosToolbox\_out\SpeelosToolbox.pdb
 e:\Documents\Sekolah\ValheimModding\_out_sk\SpeelosToolbox.dll
 e:\Documents\Sekolah\ValheimModding\_out_sk\SpeelosToolbox.pdb
+e:\Documents\Sekolah\ValheimModding\SpeelosToolbox\src\obj\Release\net48\SpeelosToolbox.sourcelink.json

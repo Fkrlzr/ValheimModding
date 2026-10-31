@@ -4,6 +4,7 @@
 
 ### Added
 
+- **Spawn works with Creature Level & Loot Control.** When CLLC is installed, the Spawn menu's Level slider goes up to CLLC's Maximum stars setting (instead of stopping at level 3), and a CLLC Options cell lets you pick the star effect, elemental infusion and boss affix of what you spawn, or leave them Random. Nothing is linked to CLLC at build time, so the toolbox runs the same without it.
 - **A ValheimTooler menu.** Every feature brought over from ValheimTooler now sits in one top-level menu, ValheimTooler, grouped into Player, Map, Messages and Player Tools. Broadcast Message is now Event Message, and Player Tools gained Kill Player (one chosen player).
 - **Hidden Pieces** (Player > Cheats, and the `HiddenPieces` config to do it on every spawn). Adds building pieces the game never lets you craft, such as the Ashlands wall and floor parts, to the Hammer's build menu. Pieces with no snap points get corner snap points from their mesh bounds so they can still snap. Nothing is saved; turning it off or restarting puts the menu back.
 
