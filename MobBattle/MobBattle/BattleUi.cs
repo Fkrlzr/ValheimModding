@@ -280,12 +280,18 @@ public class BattleUi : MonoBehaviour
 		countA = Mathf.Clamp(Mathf.RoundToInt(GUILayout.HorizontalSlider(countA, 1, maxCount)), 1, maxCount);
 		GUILayout.EndHorizontal();
 		GUILayout.BeginHorizontal();
-		GUILayout.Label($"Side B mobs: {countB}", GUILayout.Width(150f));
-		countB = Mathf.Clamp(Mathf.RoundToInt(GUILayout.HorizontalSlider(countB, 1, maxCount)), 1, maxCount);
-		GUILayout.EndHorizontal();
-		GUILayout.BeginHorizontal();
 		GUILayout.Label($"Side A stars: {starsA}  (lvl {starsA + 1})", GUILayout.Width(150f));
 		starsA = maxStars > 0 ? Mathf.Clamp(Mathf.RoundToInt(GUILayout.HorizontalSlider(starsA, 0, maxStars)), 0, maxStars) : 0;
+		GUILayout.EndHorizontal();
+		if (ClllcCompat.Present)
+		{
+			ClllcRow("Side A  CLLC", choiceA);
+		}
+
+		GUILayout.Space(4f);
+		GUILayout.BeginHorizontal();
+		GUILayout.Label($"Side B mobs: {countB}", GUILayout.Width(150f));
+		countB = Mathf.Clamp(Mathf.RoundToInt(GUILayout.HorizontalSlider(countB, 1, maxCount)), 1, maxCount);
 		GUILayout.EndHorizontal();
 		GUILayout.BeginHorizontal();
 		GUILayout.Label($"Side B stars: {starsB}  (lvl {starsB + 1})", GUILayout.Width(150f));
@@ -293,11 +299,10 @@ public class BattleUi : MonoBehaviour
 		GUILayout.EndHorizontal();
 		if (ClllcCompat.Present)
 		{
+			ClllcRow("Side B  CLLC", choiceB);
 			GUILayout.Label(MobBattle.keepClllcEffects.Value
 				? "CLLC detected: its health/damage scaling applies. Default keeps its random effects (Splitting is always removed). Click a button to change it."
 				: "CLLC detected: its health/damage scaling applies. Default removes random effects, infusions and boss affixes. Click a button to pick one instead.");
-			ClllcRow("Side A  CLLC", choiceA);
-			ClllcRow("Side B  CLLC", choiceB);
 		}
 
 		// Buttons.
